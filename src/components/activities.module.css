@@ -1,0 +1,78 @@
+.main {
+  padding-left: 2rem;
+  flex-grow: 1;
+  width: 100%;
+  box-sizing: border-box;
+}
+.activity {
+  width: 100%;
+  background-color: #fff;
+  box-sizing: border-box;
+  border: 2px solid #303030;
+  border-radius: 15px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+.activity h4 {
+  font-family: Roboto;
+  font-weight: bold;
+  font-size: 1.4rem;
+  margin-bottom: .5rem;
+}
+.activity img {
+  width: 130px;
+  height: 130px;
+  min-width: 130px;
+  min-height: 130px;
+  object-fit: contain;
+  margin-right:1rem;
+}
+.activity .infoContainer > * {
+  margin-bottom: .5rem;
+  flex: 1;
+}
+.infoContainer p {
+  white-space: pre-wrap;
+}
+.activityPoints {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.pillContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+.pill {
+  font-size: .8rem;
+  min-width: fit-content;
+  max-width: fit-content;
+  padding: 4px 8px;
+  color: #fff;
+  border-radius: 15px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+.description > * {
+  margin-top: 10px;
+}
+.description ol, .description ul {
+  padding-inline-start: 1rem;
+}
+.contact {
+  color: #4e4d4d;
+  font-style: italic;
+}
+
+@media only screen and (max-width: 850px) {
+  .main {
+    padding: 0;
+  }
+  .activity {
+    flex-direction: column;
+    align-items: center;
+  }
+}

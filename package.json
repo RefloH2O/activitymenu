@@ -10,9 +10,20 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "csv-parser": "^2.3.3",
-    "gatsby": "^2.24.14",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "babel-plugin-styled-components": "^1.10.2",
+    "csv-parser": "^2.3.0",
+    "dotenv": "^8.0.0",
+    "gatsby": "^2.10.4",
+    "gatsby-plugin-manifest": "^2.2.1",
+    "gatsby-plugin-react-helmet": "^3.1.0",
+    "gatsby-plugin-styled-components": "^3.1.0",
+    "markdown-it": "^9.0.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-helmet": "^5.2.1",
+    "react-redux": "^7.1.0",
+    "redux": "^4.0.1",
+    "request": "^2.88.0",
+    "styled-components": "^4.3.2"
   }
 }
