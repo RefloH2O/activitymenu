@@ -150,7 +150,7 @@ let mapFilteredActivities = (state) => {
   let points = state.filter.points.split("-");
   activities = activities.filter((act) => {
     if (points[1] === "*")
-      return act.Points >= parseInt(points[0]);
+      return act.Points >= parseInt(points[0]) || act.Points === "*" || act.Points === "";
     else if (act.Points === "*") return true;
     else return act.Points >= parseInt(points[0]) && act.Points <= parseInt(points[1]);
   });
