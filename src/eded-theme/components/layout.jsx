@@ -35,6 +35,7 @@ const Content = styled.div`
   }
 `;
 const BackLink = styled.a`
+  text-align: right;
   margin: 35px 0 0;
   display: block;
   font-size: 15px;
@@ -56,7 +57,9 @@ let layout = (props) => {
       <HeaderBackground />
       <Content>
         <Header />
-        <BackLink />
+        <BackLink href="https://www.gscm.refloh2o.com/ecoliteracychallenge">
+          {"<-"} Back to the Ecoliteracy Challenge website
+        </BackLink>
         {props.title && (<h2>{props.title}</h2>)}
         {props.children}
       </Content>
