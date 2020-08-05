@@ -32,7 +32,7 @@ class Filter extends React.Component {
       return ret;
     };
     let getGrades = () => {
-      var ret = [{tag:"K3", value:"-2"},{tag:"Pre-K", value:"-1"},{tag:"K", value:"0"}];
+      var ret = [{tag:"Pre-K", value:"-1"},{tag:"K", value:"0"}];
       for (var i = 1; i<=12; i++)
         ret.push({tag:i, value:i});
       return ret;
