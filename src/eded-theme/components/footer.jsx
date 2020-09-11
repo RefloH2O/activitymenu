@@ -42,8 +42,8 @@ const StyledFooter = styled.footer`
   div > a { text-decoration: none; color: unset; }
   p > a { color: unset; }
   @media only screen and (max-width: 850px) {
-    padding: 20px;
-    height: 20rem;
+    padding: 50px 20px;
+    height: 25rem;
     div {
       span {
         display: block;
