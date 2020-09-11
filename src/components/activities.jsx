@@ -120,34 +120,22 @@ let mapFilteredActivities = (state) => {
 
   //Filter categories
   if (state.filter.category.length !== 0){
-    let filteredActivities = [];
     let cat;
     let filterFunc = (act) => {
-      if (filteredActivities.includes(act)) return false;
       return act["Category"].includes(cat);
     };
     for (cat of state.filter.category)
-      filteredActivities = [
-        ...filteredActivities,
-        ...activities.filter(filterFunc)
-      ];
-    activities = filteredActivities;
+      activities = activities.filter(filterFunc);
   }
 
   //Filter types
   if (state.filter.type.length !== 0){
-    let filteredActivities = [];
     let type;
     let filterFunc = act => {
-      if (filteredActivities.includes(act)) return false;
       return act["Type"].includes(type);
     };
     for (type of state.filter.type)
-      filteredActivities = [
-        ...filteredActivities,
-        ...activities.filter(filterFunc)
-      ];
-    activities = filteredActivities;
+      activities = activities.filter(filterFunc);
   }
 
   //Filter points
