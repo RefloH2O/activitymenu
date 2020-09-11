@@ -209,7 +209,7 @@ class Index extends React.Component {
       <Layout title={"Activity Menu"}>
         <p className={s.description}>
           {`
-            Welcome to our new and improved activity menu! We’ve gathered all types of water-focused and sustainability activities for you to easily find ready-to-go resources you're interested in. Many are FREE and NGSS or Common Core aligned!
+            Welcome to our new and improved activity menu!!! We’ve gathered all types of water-focused and sustainability activities for you to easily find ready-to-go resources you're interested in. Many are FREE and NGSS or Common Core aligned!
           `}<br /><br />{`
             Filter by track, activity type, and grade level. The activity list will automatically update with your selections. On mobile, click on the "Filter" button.
           `}<br /><br />{`
