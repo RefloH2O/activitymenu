@@ -142,7 +142,7 @@ class Index extends React.Component {
       });
   }
   componentDidMount() {
-    var url = "https://docs.google.com/spreadsheets/d/11TpeYnLDwCISt_4_iyQimpXKumuxOF4MPSSMBwBY5M0/gviz/tq?tqx=out:csv&sheet=activities";
+    var url = "https://docs.google.com/spreadsheets/d/184hqQs8x2uGcsbbRWoROo6t2mXOKU1BKgomFZV8g0jk/gviz/tq?tqx=out:csv&sheet=activities";
 
     this.activities = [];
 
@@ -171,7 +171,7 @@ class Index extends React.Component {
     this.activityrequest.onreadystatechange.bind(this);
 
     //prepare organization data request
-    var orgurl = "https://docs.google.com/spreadsheets/d/11TpeYnLDwCISt_4_iyQimpXKumuxOF4MPSSMBwBY5M0/gviz/tq?tqx=out:csv&sheet=organizations";
+    var orgurl = "https://docs.google.com/spreadsheets/d/184hqQs8x2uGcsbbRWoROo6t2mXOKU1BKgomFZV8g0jk/gviz/tq?tqx=out:csv&sheet=organizations";
 
     if (!orgurl) {
       let state = this.state;

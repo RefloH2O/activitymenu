@@ -6,7 +6,7 @@ const path = require('path');
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 });
-const dataURL = "https://docs.google.com/spreadsheets/d/11TpeYnLDwCISt_4_iyQimpXKumuxOF4MPSSMBwBY5M0/gviz/tq?tqx=out:csv&sheet=organizations";
+const dataURL = "https://docs.google.com/spreadsheets/d/184hqQs8x2uGcsbbRWoROo6t2mXOKU1BKgomFZV8g0jk/gviz/tq?tqx=out:csv&sheet=organizations";
 
 exports.onPreInit = (() => {
   //clear org img directory
