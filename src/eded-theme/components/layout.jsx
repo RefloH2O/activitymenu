@@ -4,27 +4,13 @@ import styled from 'styled-components'
 
 import Header from './header'
 import Footer from './footer'
+import Banner from './banner'
 
 import data from '../data.json'
 
 import './layout.css'
 import theme from '../theme'
 
-const HeaderBackground = styled.div`
-  position: absolute;
-  height: 86px;
-  width: 100%;
-  background-color: ${theme.colors.primary};
-  z-index: -1;
-`;
-const FooterBackground = styled.div`
-  position: absolute;
-  bottom: 0;
-  height: 11rem;
-  width: 100%;
-  background-color: ${theme.colors.primary};
-  z-index: -1;
-`;
 const Content = styled.div`
   max-width: 960px;
   margin: auto;
@@ -48,22 +34,22 @@ let layout = (props) => {
     <div style={{
         position: "relative",
         minHeight:"100vh",
-        paddingBottom: "13rem"
+        paddingBottom: "25rem"
       }}>
       <Helmet
         title={props.title + " | "
           + data.title}
         defer={false} />
-      <HeaderBackground />
+      <Header />
+      <Banner src="https://images.squarespace-cdn.com/content/v1/55be6f41e4b06a28979094fc/1532293890933-QZ0DXTO1HI7ELWYAH8Y2/ke17ZwdGBToddI8pDm48kOjCiHQTp4ylhBSliyNWcaMUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKcMZfVDM3pZOlP1hLv09trMTqIBdlGYU6-6JHVGZ5qtLQeMuepFjh-7aKXV5o24OS0/Burdick+natives.jpg?format=2500w" />
       <Content>
-        <Header />
         <BackLink href="https://www.gscm.refloh2o.com/ecoliteracychallenge">
           {"<-"} Back to the Ecoliteracy Challenge website
         </BackLink>
         {props.title && (<h2>{props.title}</h2>)}
         {props.children}
       </Content>
-      <FooterBackground />
+      <Footer />
     </div>
   );
 };

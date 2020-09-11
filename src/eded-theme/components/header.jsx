@@ -20,23 +20,25 @@ const StyledHeader = styled.header`
   }
   a {
     text-decoration: none !important;
+    display: block;
+    line-height: 0;
   }
   img {
-    height: 29px;
-    margin-bottom: 6px;
-    margin-right: 8px;
+    width: 140px;
+    margin: 20px
   }
 
   @media only screen and (max-width: 850px) {
-    justify-content: center;
-    img { display: none; }
+    height: unset;
   }
 `;
 
 const Header = (props) => {
   return (
     <StyledHeader>
-      <img src={logo} alt={"SFUSD Sustainability Logo"} />
+      <a href="https://gscm.refloh2o.com">
+        <img src={logo} alt={"SFUSD Sustainability Logo"} />
+      </a>
     </StyledHeader>
   )
 }

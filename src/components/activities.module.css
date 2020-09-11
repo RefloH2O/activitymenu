@@ -17,18 +17,25 @@
   align-items: flex-start;
 }
 .activity h4 {
-  font-family: Roboto;
   font-weight: bold;
-  font-size: 1.4rem;
+  font-size: 24px;
   margin-bottom: .5rem;
 }
 .activity img {
   width: 130px;
-  height: 130px;
   min-width: 130px;
-  min-height: 130px;
   object-fit: contain;
   margin-right:1rem;
+  margin-bottom: 1rem;
+}
+.activity a:only-child > img {
+  height: 130px
+}
+.activity a:last-child > img {
+  margin-bottom: 0;
+}
+.org-image-container {
+  min-height: 130px;
 }
 .activity .infoContainer > * {
   margin-bottom: .5rem;
@@ -36,10 +43,12 @@
 }
 .infoContainer p {
   white-space: pre-wrap;
+  font-size: 16px;
 }
-.activityPoints {
+p.activityPoints {
   text-transform: uppercase;
   font-weight: bold;
+  font-size: 18px;
 }
 
 .pillContainer {

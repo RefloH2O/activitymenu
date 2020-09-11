@@ -1,18 +1,43 @@
 @import url('https://fonts.googleapis.com/css?family=Oswald|Roboto:300,400,500&display=swap');
 
+@font-face {
+  font-family: proxima-nova;
+  src: url("../fonts/proxima-nova-400.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: futura-pt;
+  src: url("../fonts/futura-pt-700.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 700;
+}
+@font-face {
+  font-family: proxima-nova;
+  src: url("../fonts/proxima-nova-700.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 700;
+}
+
 * {
   margin: 0;
 }
 body {
-  font-family: Roboto;
+  font-family: proxima-nova;
 }
 h1, h2, h3, h4, h5, h6 {
-  font-family: Oswald;
+  font-family: futura-pt;
+  letter-spacing: 0px;
 }
 h2, h3, h4, h5, h6 {
   color: #525252;
 }
 h2 {
-  font-size: 80px;
-  font-weight: normal;
+  font-size: 68px;
+}
+@media only screen and (max-width: 850px) {
+  h2 {
+    line-height: 68px;
+    margin: 2rem 0;
+  }
 }

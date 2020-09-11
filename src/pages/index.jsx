@@ -121,12 +121,15 @@ class Index extends React.Component {
 
         console.log("now processing activities with organization data...");
         for (let act of this.activities){
-          let id = act["Organization ID"][0];
-          let org = this.organizations[id];
           //Give organization link and image url
-          act["Organization Link"] = org.Link;
-          act["Image"] = 'img/orgs/id'+id;
-          act["Organization"] = org.Name;
+          act["Organization"] = act["Organization ID"]
+            .map(id => {
+              return {
+                "Name": this.organizations[id].Name,
+                "Image": 'img/orgs/id'+id,
+                "Link": this.organizations[id].Link
+              };
+            });
         };
         console.log("done processing all activities!");
 

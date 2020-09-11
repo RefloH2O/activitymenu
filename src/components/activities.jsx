@@ -14,9 +14,7 @@ class Activities extends React.Component {
             <Activity key={activity.Title}
               title={activity.Title}
               link={activity.Link}
-              img={activity.Image}
-              alt={activity.Organization}
-              orgLink={activity["Organization Link"]}
+              org={activity.Organization}
               grade={activity["Grade"]}
               gradestring={activity["Grade String"]}
               type={activity.Type}
@@ -58,9 +56,15 @@ class Activity extends React.Component {
       else pointString = this.props.points + " points";
     return (
       <div className={s.activity} ref={this.ref}>
-        <a href={this.props.orgLink}>
-          <img src={this.props.img} alt={this.props.alt} />
-        </a>
+        <div>
+          {this.props.org.map((orgObj) => {
+            return (
+              <a href={orgObj.Link}>
+                <img src={orgObj.Image} alt={orgObj.Name} />
+              </a>
+            );
+          })}
+        </div>
         <div className={s.infoContainer}>
           {this.props.link ? (<a href={this.props.link}><h4>{this.props.title}</h4></a>) : (<h4>{this.props.title}</h4>)}
           <p>{gradeString}{typeString}</p>
@@ -183,8 +187,10 @@ let mapFilteredActivities = (state) => {
       if (act.Title.toLowerCase().includes(search.join(' '))){
         act.relevance+=50;
       }
-      if (act.Organization.toLowerCase().includes(search.join(' '))){
-        act.relevance+=2
+      for (let org of act.Organization) {
+        if (org.Name.toLowerCase().includes(search.join(' '))){
+          act.relevance+=2
+        }
       }
       if (act.Description.toLowerCase().includes(search.join(' ')))
         act.relevance+=30;
