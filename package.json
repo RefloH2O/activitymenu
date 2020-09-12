@@ -1,6 +1,6 @@
 {
   "name": "reflomenu",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Reflo's ELC activity menu website, made with Gatsby",
   "main": "index.js",
   "scripts": {
