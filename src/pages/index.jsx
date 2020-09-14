@@ -4,7 +4,7 @@ import Filter from '../components/filter'
 import Activities from '../components/activities'
 
 import MarkdownIt from 'markdown-it'
-import { data } from '../eded-theme'
+import { loadMetadata } from '../eded-theme'
 
 import styled from 'styled-components'
 import s from './index.module.css'
@@ -206,6 +206,11 @@ class Index extends React.Component {
     //send activity data request
     console.log("sending activity request...");
     this.activityrequest.send();
+
+    //request and set metadata
+    loadMetadata().then((data)=>{
+      this.props.setMetadata(data);
+    });
   }
   showFilter() {
     // console.log(actions);
@@ -217,7 +222,7 @@ class Index extends React.Component {
       <Layout title={"Activity Menu"}>
         <WelcomeText className={s.description}
           dangerouslySetInnerHTML={{
-            __html: md.render(data["Welcome Text"])
+            __html: md.render(this.props.metadata["Welcome Text"])
           }} />
         <div className={s.wrapper}>
           <FilterButton onClick={this.showFilter.bind(this)}>Filter...</FilterButton>
@@ -233,9 +238,10 @@ class Index extends React.Component {
 }
 
 export default connect(
-  null,
+  state=>{return {metadata: state.metadata};},
   {
     addActivities: actions.addActivities,
-    showFilter: actions.showFilter
+    showFilter: actions.showFilter,
+    setMetadata: actions.setMetadata
   }
 )(Index);

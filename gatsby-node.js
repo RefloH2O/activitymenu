@@ -24,7 +24,7 @@ exports.onPreInit = (() => {
     .on('data', org => {
       //download image
       request({
-        url: "https://drive.google.com/uc?export=view&id="
+        url: "https://drive.google.com/uc?id="
           + org["Photo ID in Google Drive"],
         method: 'GET'
       })

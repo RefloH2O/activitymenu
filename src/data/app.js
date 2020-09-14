@@ -12,9 +12,12 @@ function removeActivity(activity) {
 function addActivities(activities) {
   return { type: "ADD_DATA", activities };
 }
+function setMetadata(metadata) {
+  return { type: "SET_METADATA", metadata };
+}
 
 export let actions = {...filterActions, addActivity, removeActivity,
-  addActivities };
+  addActivities, setMetadata };
 
 //REDUCERS
 function activities(state = [], action) {
@@ -38,10 +41,19 @@ function activities(state = [], action) {
       return state;
   }
 }
+function metadata(state = {"Categories":{}, "Welcome Text": ""}, action) {
+  switch (action.type) {
+    case "SET_METADATA":
+      return action.metadata;
+    default:
+      return state;
+  }
+}
 
 //COMBINE REDUCERS
 const app = combineReducers({
   activities,
+  metadata,
   filter
 });
 

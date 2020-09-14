@@ -6,7 +6,7 @@ import Header from './header'
 import Footer from './footer'
 import Banner from './banner'
 
-import {data} from '..'
+import { connect } from 'react-redux'
 
 import './layout.css'
 import theme from '../theme'
@@ -38,12 +38,12 @@ let layout = (props) => {
       }}>
       <Helmet
         title={props.title + " | "
-          + data.Title}
+          + props.metadata.Title}
         defer={false} />
       <Header />
-      <Banner src={data["Banner Image"]} />
+      <Banner src={props.metadata["Banner Image"]} />
       <Content>
-        <BackLink href={data["Home URL"]}>
+        <BackLink href={props.metadata["Home URL"]}>
           {"<-"} Back to the Ecoliteracy Challenge website
         </BackLink>
         {props.title && (<h2>{props.title}</h2>)}
@@ -54,4 +54,7 @@ let layout = (props) => {
   );
 };
 
-export default layout;
+export default connect(
+  (state)=>{return {metadata: state.metadata};},
+  null
+)(layout);

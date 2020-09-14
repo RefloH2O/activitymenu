@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import MarkdownIt from 'markdown-it'
 
 import s from './activities.module.css'
-import { data } from '../eded-theme'
 
 class Activities extends React.Component {
   render () {
@@ -21,6 +20,7 @@ class Activities extends React.Component {
               points={activity.Points}
               pointstring={activity["Points String"]}
               description={activity.Description}
+              metadata={this.props.metadata}
               cost={activity.Cost}
               contact={activity.Contact}
               standards={activity["Standards Connections"]}
@@ -72,7 +72,9 @@ class Activity extends React.Component {
           <div className={s.pillContainer}>
             {this.props.categories.map((cat)=>{
               return (
-                <Pill key={cat} name={cat} />
+                <Pill key={cat}
+                  name={cat}
+                  color={this.props.metadata.Categories[cat]} />
               );
             })}
           </div>
@@ -107,7 +109,7 @@ class Activity extends React.Component {
 const Pill = (props) => {
   return (
     <div className={s.pill} style={{
-        backgroundColor: data.Categories[props.name]
+        backgroundColor: props.color
       }}>
       {props.name}
     </div>
@@ -228,7 +230,7 @@ let mapFilteredActivities = (state) => {
     else return 0;
   };
   activities = activities.sort(sortFunction)
-  return { activities };
+  return { activities, metadata: state.metadata };
 };
 
 export default connect(

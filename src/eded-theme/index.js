@@ -5,14 +5,14 @@ export {default as Footer} from './components/footer'
 export {default as Layout} from './components/layout'
 export {default as theme} from './theme'
 
-async function getData() {
+async function loadMetadata() {
   let url = "https://docs.google.com/spreadsheets/d/184hqQs8x2uGcsbbRWoROo6t2mXOKU1BKgomFZV8g0jk/gviz/tq?tqx=out:csv&sheet=tracks+and+metadata";
   let raw = await fetch(url);
   let body = await raw.text();
   // TODO: see if can take out raw and simplify
   let parsed = await csv(body,{headers:false});
   let reachedCategories = false;
-  let data = {"Categories":{}};
+  let data = {"Categories":{}, loaded: true};
   for (let line of parsed) {
     console.log("working on "+JSON.stringify(line))
     if (line[0] === "SKIP") continue;
@@ -28,7 +28,4 @@ async function getData() {
   return data;
 }
 
-let data = {"Categories":{}, "Welcome Text": ""};
-getData().then((x)=>{data = x; console.log(x)});
-
-export {data}
+export {loadMetadata}
