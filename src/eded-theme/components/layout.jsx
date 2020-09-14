@@ -6,7 +6,7 @@ import Header from './header'
 import Footer from './footer'
 import Banner from './banner'
 
-import data from '../data.json'
+import {data} from '..'
 
 import './layout.css'
 import theme from '../theme'
@@ -38,12 +38,12 @@ let layout = (props) => {
       }}>
       <Helmet
         title={props.title + " | "
-          + data.title}
+          + data.Title}
         defer={false} />
       <Header />
-      <Banner src="https://images.squarespace-cdn.com/content/v1/55be6f41e4b06a28979094fc/1532293890933-QZ0DXTO1HI7ELWYAH8Y2/ke17ZwdGBToddI8pDm48kOjCiHQTp4ylhBSliyNWcaMUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKcMZfVDM3pZOlP1hLv09trMTqIBdlGYU6-6JHVGZ5qtLQeMuepFjh-7aKXV5o24OS0/Burdick+natives.jpg?format=2500w" />
+      <Banner src={data["Banner Image"]} />
       <Content>
-        <BackLink href="https://www.gscm.refloh2o.com/ecoliteracychallenge">
+        <BackLink href={data["Home URL"]}>
           {"<-"} Back to the Ecoliteracy Challenge website
         </BackLink>
         {props.title && (<h2>{props.title}</h2>)}

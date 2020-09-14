@@ -3,6 +3,9 @@ import { Layout } from '../eded-theme'
 import Filter from '../components/filter'
 import Activities from '../components/activities'
 
+import MarkdownIt from 'markdown-it'
+import { data } from '../eded-theme'
+
 import styled from 'styled-components'
 import s from './index.module.css'
 
@@ -25,6 +28,11 @@ let FilterButton = styled.button`
   display: none;
   @media only screen and (max-width: 850px) {
     display: block;
+  }
+`;
+let WelcomeText = styled.p`
+  p {
+    margin-bottom: 1rem;
   }
 `;
 
@@ -57,7 +65,6 @@ class Index extends React.Component {
         data["Points String"] = data["Points"];
         data["Grade String"] = data["Grade"];
         data["Grade"] = data["Grade"].split('-');
-        let str = "PreK";
         data["Grade"][0] = data["Grade"][0]
           .replace(/PreK/,'-1')
           .replace(/K3/,'-2')
@@ -67,7 +74,7 @@ class Index extends React.Component {
             .replace(/PreK/,'-1')
             .replace(/K3/,'-2')
             .replace(/K/,'0');
-        data["Points"] = data["Points"] == "varies" ? "*"
+        data["Points"] = data["Points"] === "varies" ? "*"
           : data["Points"].split("/")[0];
 
         //add to activity cache
@@ -205,19 +212,13 @@ class Index extends React.Component {
     this.props.showFilter(true);
   }
   render() {
+    let md = new MarkdownIt({typographer: true});
     return (
       <Layout title={"Activity Menu"}>
-        <p className={s.description}>
-          {`
-            Welcome to our new and improved activity menu!!! We’ve gathered all types of water-focused and sustainability activities for you to easily find ready-to-go resources you're interested in. Many are FREE and NGSS or Common Core aligned!
-          `}<br /><br />{`
-            Filter by track, activity type, and grade level. The activity list will automatically update with your selections. On mobile, click on the "Filter" button.
-          `}<br /><br />{`
-            Thanks to our 2020 summer intern `}
-            <a href="https://www.ruizalex.com">Alex Ruiz</a>{`
-            for making this new Activity Menu!
-          `}
-        </p>
+        <WelcomeText className={s.description}
+          dangerouslySetInnerHTML={{
+            __html: md.render(data["Welcome Text"])
+          }} />
         <div className={s.wrapper}>
           <FilterButton onClick={this.showFilter.bind(this)}>Filter...</FilterButton>
           <Filter

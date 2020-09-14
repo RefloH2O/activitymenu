@@ -107,7 +107,7 @@ class Activity extends React.Component {
 const Pill = (props) => {
   return (
     <div className={s.pill} style={{
-        backgroundColor: data.categories[props.name]
+        backgroundColor: data.Categories[props.name]
       }}>
       {props.name}
     </div>

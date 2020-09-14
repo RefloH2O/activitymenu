@@ -1,5 +1,5 @@
 import React from 'react'
-import data from '../data.json'
+// import {data} from '..'
 import styled from 'styled-components'
 
 import logo from '../img/gscm.png'
@@ -37,7 +37,7 @@ const Header = (props) => {
   return (
     <StyledHeader>
       <a href="https://gscm.refloh2o.com">
-        <img src={logo} alt={"SFUSD Sustainability Logo"} />
+        <img src={logo} alt={"Green Schools Consortium of Milwaukee Logo"} />
       </a>
     </StyledHeader>
   )
