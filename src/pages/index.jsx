@@ -230,7 +230,7 @@ class Index extends React.Component {
             categories={this.state.data.categories}
             types={this.state.data.types}
             maxPoints={this.state.data.points.max}/>
-          <Activities />
+          <Activities metadata={this.props.metadata} />
         </div>
       </Layout>
     );
